@@ -1,1 +1,1 @@
-# JavaScript-book
+Programming with JavaScript Exercises 
