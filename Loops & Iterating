@@ -8,4 +8,32 @@ for (let future = 10; future <= 40; future += 10) {
   console.log(`In ${future} years, you will be ${age + future} years old.`);
 }
 
-2. 
+2. Write a function that computes and returns the factorial (see exercise 4 in the Functions chapter) of a number by using a for loop. You may assume that the argument is a valid non-negative integer.
+
+function factorial(number) {
+  let result = 1;
+  for (let counter = number; counter > 0; counter -= 1) {
+    result *= counter;
+  }
+
+  return result;
+}
+
+3. The following code causes an infinite loop (a loop that never stops iterating). Why?
+
+let counter = 0;
+
+while (counter = 1) {
+  console.log(counter);
+  counter += 1;
+
+  if (counter > 2) {
+    break;
+  }
+}
+
+The problem occurs on line 3 where we assign 1 to counter inside the conditional part of the while loop. JavaScript accepts this code since the assignment always returns a truthy value (1 in this case), the loop condition never becomes false. Furthermore, the test on line 7 never becomes true since the assignment on line 3 ensures that counter is always equal to 2 when we execute line 7.
+
+4. Does the following code produce an error? Why or why not? What output does this code send to the console?
+
+The code doesn't produce an error since all 3 components of the for loop are optional. In this code, we omit the "next value" component; however, this isn't a problem here since we increment the loop variable on line 2.
