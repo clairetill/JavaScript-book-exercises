@@ -57,3 +57,64 @@ let newArray = myArray.map(function(value) {
     return 'odd';
   }
 });
+
+5. Use the filter method to implement a function that returns a new array with all of the integers from the input array. It should ignore all non-integer values from the input.
+
+function removeNonInteger(array) {
+  return array.filter(Number.isInteger);
+}
+
+6. Use map and filter to first determine the lengths of all the elements in an array of string values, then discard the even values (keep the odd values).
+
+let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
+console.log(oddLengths(arr)); // => [1, 5, 3]
+
+function oddLengths(arr) {
+  let filteredNumbersArray = arr.map((letters) => {
+    return letters.length;
+  }).filter((number) => {
+    return number % 2 === 1;
+  });
+
+  return filteredNumbersArray;
+}
+
+let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
+console.log(oddLengths(arr));
+
+7. Use reduce to compute the sum of the squares of all of the numbers in an array:
+
+let numbers = [3, 5, 7];
+console.log(sumOfSquares(numbers)); // => 83
+
+function sumOfSquares(numbers) {
+  return numbers.reduce((accumulator, number) => {
+    return accumulator + number * number;
+  }, 0);
+}
+
+8. Write a function similar to the oddLengths function from Exercise 6, but don't use map or filter. Instead, try to use the reduce method.
+
+let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
+console.log(oddLengths(arr)); // => [1, 5, 3]
+
+function oddLengths(arr) {
+  return arr.reduce((filteredNumbersArray, letters) => {
+    let length = letters.length;
+    if (length % 2 === 1) {
+      filteredNumbersArray.push(length);
+    }
+
+    return filteredNumbersArray;
+  }, []);
+}
+
+9. Without using a for, while, or do/while loop, write some code that checks whether the number 3 appears inside these arrays:
+
+numbers1.includes(3);  // => true
+numbers2.includes(3);  // => false
+numbers3.includes(3);  // => false
+
+10. > let arr = [["test", "hello", "world"], ["example", 6, "mem", null], [4, 8, 12]];
+
+arr[1][2];
