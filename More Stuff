@@ -1,1 +1,68 @@
+1. What does this code log to the console? Why?
 
+let array1 = [1, 2, 3];
+let array2 = array1;
+array1[1] = 4;
+console.log(array2);
+
+The code outputs:
+
+[ 1, 4, 3]
+
+2. What do the following error message and stack trace tell you?
+
+$ node exercise2.js
+/Users/wolfy/tmp/exercise2.js:4
+  console.log(greeting);
+              ^
+
+ReferenceError: greeting is not defined
+    at hello (/Users/wolfy/tmp/exercise2.js:4:15)
+    at Object.<anonymous> (/Users/wolfy/tmp/exercise2.js:13:1)
+    at Module._compile (internal/modules/cjs/loader.js:721:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:732:10)
+    at Module.load (internal/modules/cjs/loader.js:620:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:560:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:552:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:774:12)
+    at executeUserCode (internal/bootstrap/node.js:342:17)
+    at startExecution (internal/bootstrap/node
+    
+An error occurred in the exercise2.js program on line 4 of the program; a ^ points to where JavaScript thinks the error is in the code: it's pointing to the argument list for console.log.
+
+More specifically, line 6 in the output tells you that a ReferenceError exception occurred and that the name greeting isn't defined. Line 7 repeats some earlier information: JavaScript detected the error at column 15 of line 4, but it also tells you that the code is in the hello function. Line 8 tells you that hello was called from line 13 in an anonymous function, namely the global-level of the program
+
+3. Write some code to output the square root of 37.
+
+> console.log(Math.sqrt(37))
+6.082762530298219
+= undefined
+
+4. Given a list of numbers, write some code to find and display the largest numeric value in the list.
+
+console.log(Math.max(1, 6, 3, 2));      // 6
+console.log(Math.max(-1, -6, -3, -2));  // -1
+console.log(Math.max(2, 2));            // 2
+
+5. What does the following function do?
+
+function doSomething(string) {
+  return string.split(' ').reverse().map((value) => value.length);
+}
+
+This code converts a string into an array of words, reverses that array, and then returns a new array that contains the lengths of the words. It assumes that a single space character delimits the words in the original string.
+
+console.log(doSomething('Four score and seven years ago'));
+
+// output
+// [3, 5, 5, 3, 5, 4]
+
+6. Write a function that searches an array of strings for every element that matches the regular expression given by its argument. The function should return all matching elements in an array.
+
+function allMatches(words, pattern) {
+  return words.filter((word) => pattern.test(word));
+}
+
+7. What is exception handling and what problem does it solve?
+
+Exception handling is a process that deals with errors in a manageable and predictable manner. It uses the try/catch statement to catch exceptions that the code in the try block raises, and lets the programmer deal with the problem in a way that makes sense and perhaps prevents a catastrophic failure or nasty bug.
