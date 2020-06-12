@@ -1,1 +1,21 @@
 
+1. Given the following code, how can you access the name of the person?
+
+let person = {
+  name:       'Bob',
+  occupation: 'web developer',
+  hobbies:    'painting',
+};
+
+person.name;
+
+2. Which of the following values are valid keys for an object?
+
+1
+'1'
+undefined
+'hello world'
+true
+'true'
+
+All the listed values are valid keys.
